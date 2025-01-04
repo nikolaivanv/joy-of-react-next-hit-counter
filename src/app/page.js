@@ -1,5 +1,6 @@
 import React from "react";
 
+import CensoredButton from "./censored-button";
 import { readFile, writeFile } from "../helpers/file-helpers";
 
 const DATABASE_PATH = "/src/database.json";
@@ -28,7 +29,9 @@ function Home() {
   return (
     <main>
       <h1>Welcome!</h1>
-      <p>You are visitor number {count}.</p>
+      <p>
+        You are visitor number <CensoredButton>{count}</CensoredButton>.
+      </p>
     </main>
   );
 }
