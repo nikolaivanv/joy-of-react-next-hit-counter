@@ -1,11 +1,8 @@
-import React from 'react';
+import React from "react";
 
-import {
-  readFile,
-  writeFile,
-} from '../helpers/file-helpers';
+import { readFile, writeFile } from "../helpers/file-helpers";
 
-const DATABASE_PATH = '/src/database.json';
+const DATABASE_PATH = "/src/database.json";
 
 /*
 `readFile` takes 1 argument:
@@ -24,10 +21,14 @@ writeFile(
 */
 
 function Home() {
+  let { count } = JSON.parse(readFile(DATABASE_PATH));
+  count = count + 1;
+  writeFile(DATABASE_PATH, JSON.stringify({ count }));
+
   return (
     <main>
       <h1>Welcome!</h1>
-      <p>You are visitor number X.</p>
+      <p>You are visitor number {count}.</p>
     </main>
   );
 }
